@@ -74,3 +74,32 @@ exlist.clear() #Clears the whole list
 
 '''Sorting of list'''
 
+exlist.sort() # alphabatically sorted 
+
+thislist = [23,56,14,12,58,90]
+thislist.sort() #Sorted in ascending order
+thislist.sort(reverse=True) #Sorted in descending order
+
+#customized sorting function:
+def myfunc(n):
+    return abs(n - 50)
+
+funclist = [100,25,26,12,58,90]
+funclist.sort(key = myfunc)  # customized sorting according to the function
+
+#Copying list:
+
+secondlist = exlist.copy() #second list contains same as exlist list now
+secondlist = list(exlist)
+secondlist = exlist[:]
+
+# Joining list:
+
+list1 = ["a","b","c"]
+list2 = [1,2,3]
+
+list3 = list1 + list2 #list3 = ["a","b","c",1,2,3]
+for x in list2:
+    list1.append(x)
+list1.extend(list2)
+
