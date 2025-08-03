@@ -103,3 +103,64 @@ for x in list2:
     list1.append(x)
 list1.extend(list2)
 
+'''Tupple: Tuple items are ordered, indexed, unchangable, and allow duplicate values // Many methods are same in array data structures such as list,tuple,etc'''
+thistuple = ("apple","banana","cherry","mango")
+
+print(len(thistuple)) #Gives the length of the data structure: such as tupple,list etc.
+
+newtuple = ("apple",1,"cherry",2) #tuple can contain diffrent data structures
+
+#unpacking in tuple:
+fruits = ("apple","mango","cherry","banana","watermelon")
+(green,yellow,*red) = fruits
+print(green) #apple
+print(yellow) #mango
+print(red) #["cherry","banana","watermelon"] : with * all the rest values are assign to red only
+
+#Sets: Set items are unordered, unchangeable and do not allow duplicate value.
+exset = {"abc",1,"ipl",12,"malik"} # set can have different data types.
+
+for x in exset:
+    print(x) #prints elements of set
+print("banana" in exset) #True if banana is in exset else false
+print("apple" not in exset) #True if apple is not in exset else false
+
+'''Once tuple is created u cannot change the items but u can new items '''
+exset.add("orange") #add orange in the starting of set
+
+ex2set = ("juice","pani-puri","samosa","chaat")
+exset.update(ex2set) #Make single set from both the sets
+'''Through update u can add any iterable such as list etc'''
+
+exset.remove(1) #removes 1 from the set
+exset.discard(1) #same as remove but not will raise an error if the discarding element is not present in the set.
+
+exset.pop() #removes a random element from set
+exset.clear() #clear out the set
+del exset #will delete the set completely
+
+#Join Sets:
+
+set1 = {1,2,3}
+set2 = {"a","b","c"}
+
+'''UNION'''
+set3 = set1.union(set2) # set3 contains elements from both the sets UNION!
+set3 = set1 | set2 #Same as union
+set3 = set1.union(set2,exset,ex2set) #can join many sets
+set3 = set1 | set2 | exset | ex2set #same as above
+'''U can union diffrent data types too but only with union() not | operator'''
+set1.update(set2) #random adding of both sets
+
+'''INTERSECTION'''
+set3 = set1.intersection(set2) #Set3 contains elements present in both the sets
+set3 = set1 & set2 #same as intersection
+set1.intersection_update(set2) #keep only duplicates, but it will change the original set instead of making a new set
+
+'''DIFFERENCE'''
+set3 = set1.difference #will return a new set that will contain only the items from the set that are not present in the other set.
+set3 = set1 - set2 #same as above
+set1.difference_update(set2) #Keep the items that are not prsent in both sets.
+set3 = set1.symmetric_difference(set2) #Keep only the elements that are NOT present in both sets.
+
+
