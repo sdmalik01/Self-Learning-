@@ -163,4 +163,49 @@ set3 = set1 - set2 #same as above
 set1.difference_update(set2) #Keep the items that are not prsent in both sets.
 set3 = set1.symmetric_difference(set2) #Keep only the elements that are NOT present in both sets.
 
+'''
+Dictionary: 
+1.Dictionary are written with curly brackets, and have keys and values.
+2.Dictionary items are ordered, changeable, and do not allow duplicates.
+dictionary items are presented in key:value pairs, and can be referred to using the key name.
+'''
+thisdict = {
+    "brand":"Ford",
+    "model":"Mustang",
+    "year": 1964
+}
+x = thisdict['model'] #Output: Mustang
+x = thisdict.get("model") #Output: Mustang
+
+y = thisdict.keys() #This method will give list of the keys in the dictionary.
+thisdict["new_model"] = "Mustang GT" #Add item to dictionary.
+
+z = thisdict.values() #this method will give list of values.
+
+l = thisdict.items() #this method will give (key,value) pairs in tuple.
+
+#Checking if key exists in dictionary or not:
+if "model" in thisdict:
+    print("Yes model is there in key") #Standard the loop will go through keys.
+
+thisdict["brand"] = "BMW" #Change the value of brand key.
+thisdict.update({"year": 2020}) #update/change the value of key.
+
+thisdict.pop("model") #Remove pop key value pair.
+del thisdict["model"] #Same as above.
+thisdict.popitem() #removes random key value pair.
+thisdict.clear() #clear the dictionary.
+
+for x in thisdict:
+    print(x)   #Prints keys in dictionary.
+for x in thisdict.keys():
+    print(x) #prints keys as looping through keys.
+for y in thisdict:
+    print(thisdict[y]) #prints values in dictionary.
+for y in thisdict.values():
+    print(y) #Gives values as looping through values.
+for x,y in thisdict.items():
+    print(x,y) #loop thorugh every item in dictionary.
+
+
 
