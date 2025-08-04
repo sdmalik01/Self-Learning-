@@ -207,3 +207,140 @@ for y in thisdict.values():
 for x,y in thisdict.items():
     print(x,y) #loop thorugh every item in dictionary.
 
+mydict = thisdict.copy() #Copy the whole dictionary into a new dictionary.
+mydict = dict(thisdict) #same as above.
+
+#Nested dictionary:
+
+myfamily = {
+    "child1":{
+        "name":"emil",
+        "year":2004
+    },
+    "child2":{
+        "name":"malik",
+        "year":2005
+    },
+    "child3":{
+        "name":"Ayesha",
+        "year":2006
+    }
+}
+
+'''OR'''
+
+child1 = {
+    "name":"emil",
+    "year":2004
+}
+child2 = {
+    "name":"Malik",
+    "year":2005
+}
+child3 = {
+    "name":"Ayesha",
+    "year":2006
+}
+
+myfamily = {
+    "child1":child1,
+    "child2":child2,
+    "child3":child3
+}
+
+print(myfamily["child2"]["name"])  #Acessing nested items.
+
+
+'''Conditional statements'''
+a = 33
+b = 55
+if a==b:
+    print("a=b")  #condition checking using if-elif-else statements:
+elif a!=b:
+    print("a is not equal to b")
+else:
+    print("Nothing!")
+
+'''Python Match'''
+day = 4
+match day:
+    case 1:
+        print("Mon")
+    case 2:
+        print("Tue")
+    case 3:
+        print("wed")
+    case 4:
+        print("thur")
+    case 5:
+        print("Fri")
+    case 6:
+        print("Sat")
+    case 7:
+        print("Sun")
+    case _: #Default case
+        print("This is defualt return")
+
+#Or statement----
+match day:
+    case 1 | 2 | 3 | 4 | 5:
+        print("---Normal Day---")
+    case 6 | 7:
+        print("---Weekend---")
+#if statement Guards:
+month = 4
+match day:
+    case 1 | 2 | 3 | 4 | 5 if month == 4:
+        print("Normal day in April")
+    case 6 | 7 if month == 5:
+        print("This weekend in may!")
+    case _:
+        print("No match!")
+
+#Loops in python: While,For ---
+i = 1
+while i < 6: #Loop until the condition is true. use when we dont know the ending condition.
+    print(i)
+    i+=1
+    if i==5:
+        break   #Break statement stops at the condition when true.
+while i < 10:
+    print(i)
+    if i==5:
+        continue    #Continue statement skips the continue code and start from first like continue.
+    i+=1
+
+'''For loop:'''
+for x in range(2,6,2): #Loop from 2-6 (But not including 6) -- with 2 steps increament.
+    print(x)
+
+color = ["red","yellow","green","blue","black"]
+fruits = ["apple","mango","guava","berry","avacado"]
+
+for x in color:
+    for y in fruits:
+        print(x,y)
+
+for x in range(1,3):
+    pass            #pass is written where u want nothing execution through this it will not get an error
+
+'''-----Functions-----'''
+def function_name():
+    print("Hello World") #Statement
+
+function_name() #function call
+
+def try_fun(fname):
+    print(fname + "Reference")
+
+try_fun("Malik")    #Parameters and arguments can refer same thing: values passed in the function.
+try_fun("Ayesha")   
+try_fun("Muktar")
+
+def fun1(name,age,course):      #parameters can be more then one in functions
+    print("My name is: ", name,"I am ",age,"old","i am persuing", course)
+#if parameters are 3 and u pass only 2 it will give an error hence for this u will nedd defualt arguments in functions.
+def fun2(name,age,course="btech"):
+    print("Course: " + course)  #if nothing is passed in function call for course the defualt value will be taken.
+
+
