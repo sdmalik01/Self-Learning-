@@ -343,4 +343,44 @@ def fun1(name,age,course):      #parameters can be more then one in functions
 def fun2(name,age,course="btech"):
     print("Course: " + course)  #if nothing is passed in function call for course the defualt value will be taken.
 
+'''------OOP: Object oriented programming ------'''
+# To map with real world scenarios, we started using objects in code. This is called Object oriented programming.
+
+# class : class is a blueprint for creating objects ---
+class Student:
+    name = "Sayyad Malik"
+#object: basically instance
+S1 = Student()
+print(S1.name)
+
+# __init__ funtion: Constructor 
+#All classes have a function called __init__(), which is always executed when the class is being initiated.
+
+class Student:
+    def __init__(self,name,marks):
+        self.name = name    #Self basically points to the created object 
+        self.marks = marks
+    #defualt constructor
+    def __init__():
+        pass
+s1 = Student("Malik",95)
+s2 = Student("Ayesha",90)
+print(s1.name,s1.marks)
+print(s2.name,s2.marks)
+
+# Class and Instance Attribute:
+class Student:
+    college_name = "IICT MGMU"   #Comman variable hence out-off the contructor.
+    name = "Anonymous"  #class attr
+    def __init__(self,name,prn):
+        self.name = name    #obj attr > class attr
+        self.prn = prn
+
+s3 = Student("Malik",90)
+print(s3.college_name) #output: IICT MGMU
+
+
+
+
+
 
