@@ -357,6 +357,7 @@ print(S1.name)
 #All classes have a function called __init__(), which is always executed when the class is being initiated.
 
 class Student:
+    # Parameterized constructors
     def __init__(self,name,marks):
         self.name = name    #Self basically points to the created object 
         self.marks = marks
@@ -373,11 +374,81 @@ class Student:
     college_name = "IICT MGMU"   #Comman variable hence out-off the contructor.
     name = "Anonymous"  #class attr
     def __init__(self,name,prn):
-        self.name = name    #obj attr > class attr
+        self.name = name    #obj attr > class attr in case obj.attr call
         self.prn = prn
 
 s3 = Student("Malik",90)
 print(s3.college_name) #output: IICT MGMU
+print(Student.college_name) #output: IICT MGMU
+
+# Methods in class:
+class Student:
+    def __init__(self,fullname,marks):
+        self.fullname = fullname
+        self.marks = marks
+    def hello(self):
+        print("hello",self.name)
+    def get_marks(self):
+        return self.marks
+s1 = Student("karan")
+s1.hello()
+
+# Static Methods: Methods that dont use the self parameter (work at class level)
+
+class Student:
+    @staticmethod #decorator  
+    # decorators allows us to wrap another function in order to extent the behaviour of the wrapped function,without permanently modifyin it.
+    def college():
+        print("ABC College!")
+
+'''
+OOPS Pillars: 
+    - Abstraction
+    - Encapsulation
+    - Inheritance
+    - Polymorphism
+'''     
+# Abstraction: Hiding the implementation details of a class and only showing the essential features to the user.
+class Car:
+    def __init__(self):
+        self.acc = False
+        self.brk = False
+        self.clutch = False
+    def start(self):
+        self.acc = True
+        self.brk = True
+        print("The Car is started!...") # Only this is viewed by the user 
+
+car1 = Car()
+car1.start()
+
+#Encapsulation: Wrapping data and functions into a single unit (object).
+
+class Account:
+    def __init__(self,bal,acc):
+        self.balance = bal
+        self.account_no = acc
+    
+    def Debit(self,amount):
+        self.balance -= amount
+        print("Rs. ", amount, "was credited")
+
+    def credit(self,amount):
+        self.balance += amount
+        print("Rs. ",amount,"was credited")
+
+    def get_balance(self):
+        return self.balance
+    
+acc1 = Account(10000, 475510)
+print(acc1.balance)
+print(acc1.account_no)
+acc1.Debit(5000)
+acc1.credit(5000)
+acc1.get_balance()
+
+
+
 
 
 
