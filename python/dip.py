@@ -45,3 +45,25 @@ print(f"Image successfully converted and saved as PNG at: {output_png_path}")
 output_jpeg_path = "/content/img.jpeg"
 cv2.imwrite(output_jpeg_path, img)
 print(f"Image successfully converted and saved as JPEG at: {output_jpeg_path}")
+
+
+# This shows the difference between lossy and lossless compression of the image using different formats
+# Another way to optain the format of the image
+from PIL import Image
+img = Image.open(img_path)
+format = img.format
+
+import matplotlib.pyplot as plt
+plt.imshow(img)
+
+if format in ["JPG","JPEG"]:
+  compression = "Lossy Compression"
+
+elif format in ["PNG","TIFF","BMP"]:
+  compression = "LossLess compression"
+
+else:
+  compression = "Unkownn compression"
+
+print(f"Format of the image: {format}")
+print(f"compression of the image: {compression}")
