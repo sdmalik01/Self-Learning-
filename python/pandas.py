@@ -25,7 +25,7 @@ changed_s1 = s1.drop(0)    # Drop function drops value along with its label
 print(s1)    # Original is intact as the series in pandas are immutable
 print(changed_s1)   # New series is created when value is droped or added
 
-# DataFrame data type in pandas
+# -------------------------------------------- DataFrame data type in pandas -----------------------------------------------
 
 # Creating DataFrame:
 
@@ -68,7 +68,7 @@ print(df, type(df))
 df = pd.read_csv("employee_data.csv")
 print(df, type(df))
 
-# DataFrame Methods: which can be used to perform different operations on the DataFrame ie EDA usescase
+# ---------------------------- DataFrame Methods: which can be used to perform different operations on the DataFrame ie EDA usescase --------------------------------
 
 print(df.head())   #head() returns the first five values in the DataFrame
 print("                -----------         ")
@@ -108,7 +108,7 @@ print(df.sample())
 print("                -----------         ")
 print(df.describe())
 
-# Selecting the data:
+# ------------------------------- Selecting the data: -----------------------------------------
 
 # Selection of columns
 df["city"]    # Returns columns
@@ -139,7 +139,7 @@ df.loc[0:2, ["city","aqi","latitude"]]
 df.iloc[0:3, 1:5]                           # Both give same values but inclusion of the end in [] & input values type in df.loc/iloc[value]
 
 
-# Selection of individual cell or scalar value by label and indexes
+# ---------------------------------- Selection of individual cell or scalar value by label and indexes --------------------------------
 
 df.at[0, "city"]      # at[row, column]
 df.iat[0, 2]          # iat[row, column] but both should be numeric
@@ -155,5 +155,20 @@ print(USA_city)              # This saves a copy
 
 # Even if we change a value in view mode it get refeclected in the main data 
 #df.at[0, "city"] = "Ahmedabad"    -    This will change the value in the main dataset too.
+
+# --------------- Filtering of data: ----------------------------------------
+
+df[df["aqi"] > 100]      # df[condition]
+df[(df["aqi"] > 100) & (df["temperature"] > 30)]     # df[condition1 & condition2]
+# & - and, | - or, ~ = not
+
+df[0:2]["city"]  # df[rows][columns]
+df[df["aqi"] > 100 ][["city", "aqi"]]  # df[condition for rows][columns]
+
+aqi_data = df[(df["aqi"] > 100) & (df["temperature"] > 30)][["city","aqi"]]
+# Still after this the labels do not get change! it will be same as in main dataset
+aqi_data.loc[6]
+aqi_data.iloc[0]      # both are same! this shows the difference between labels and index
+
 
 
